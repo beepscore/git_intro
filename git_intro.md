@@ -69,26 +69,6 @@ In bash, cd to directory that will contain the new project folder, e.g.
   git clone git@github.com:beepscore/BeepscoreProject.git
 
 ## Creating a git repository in the project
-in Finder, create new folder MyProject 
-or in bash
-
-    $ mkdir MyProject
-
-in bash
-
-    $ cd MyProject
-
-in Finder, copy file Objective-C.gitignore into directory MyProject
-
-in bash, rename Objective-C.gitignore to .gitignore (can't do this from Finder)  
-
-    $ mv Objective-C.gitignore .gitignore
-
-list files, including hidden files that start with "."  
-
-    $ ls -a
-
-create a git repository
 
     $ git init
 
@@ -132,12 +112,7 @@ Create a commit that undoes back to commit (sha).
 
     $ git revert (sha)
 
-## Log a file's revision history (Git Immersion Lab 23)
-
-    $ git log -- myfile
-    $ git log -p myfile
-
-## Manipulating branches(Git Immersion Lab 24)
+## branches
 
 List all branches
 
@@ -147,14 +122,6 @@ Create a new branch named mybranch, referencing the same point in history as the
 
     $ git branch mybranch
     $ git checkout mybranch
-
-Merge mybranch into the current branch. Doesn't delete mybranch
-
-    $ git merge mybranch
-
-Delete the branch mybranch; if the branch you are deleting points to a commit which is not reachable from the current branch, this command will fail with a warning. When run in local repository, deletes branch in local repository only.
-
-    $ git branch -d mybranch
 
 Remove some-branch from the remote repo (e.g. github)
 
