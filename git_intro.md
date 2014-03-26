@@ -47,7 +47,10 @@ Nodes connected by arrows. No closed loops.
  <img src="images/xcode_diff.png" alt="Git Diff in Xcode">
 
 ### SourceTree
+ <img src="images/sourcetree_diff.png" alt="Git Diff in SourceTree">
+
 ### MacVim
+ <img src="images/macvim_diff.png" alt="Git Diff in MacVim">
 
 ## Branches
 
