@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+git version control in and out of Xcode
+</title>
+    
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 id="git-version-control-in-and-out-of-xcode">git version control in and out of Xcode</h1>
+<h1 id="summary">Summary</h1>
+<p>Steve Baker will talk about &quot;git version control, in and out of Xcode&quot; or &quot;How to safely detach your head!&quot;<br />Designed for beginning/intermediate git users.<br />Topics: Commit, branch, tag using SourceTree gui, Xcode, command line.<br />Stash, selective commit or discard changes.<br />Diffing changes using Xcode, SourceTree, FileMerge, MacVim.<br />Checking out previous versions, branch, detached head state, command line reflog.<br />.gitignore<br />Using github as a remote: push, pull.<br />Potential intermediate topics include reverting commits, working with other developers on multiple branches, resolving merge conflicts.</p>
+<h1 id="topics">Topics</h1>
+<h2 id="how-git-tracks-changes">How git tracks changes</h2>
+<h3 id="sha">SHA</h3>
+<pre><code> Everything in Git is check-summed before it is stored and is then referred to by a SHA-1 hash.
+ This means it’s impossible to change the contents of any file or directory without Git knowing about it.</code></pre>
+<h3 id="directed-acyclic-graph">directed acyclic graph</h3>
+<p>Nodes connected by arrows. No closed loops.</p>
+<h3 id="working-directory---staging-area---repository">Working directory -&gt; Staging area -&gt; Repository</h3>
+<h3 id="branch-is-last-commit-advances-automatically">branch is last commit, advances automatically</h3>
+<h3 id="unlike-svn-branch-doesnt-clutter-file-structure-in-finder.">Unlike SVN, branch doesn't clutter file structure in Finder.</h3>
+<h3 id="tag-doesnt-move">tag doesn't move</h3>
+<h2 id="stage">Stage</h2>
+<h2 id="commit">Commit</h2>
+<h2 id="sha-1">SHA</h2>
+<h2 id="gitignore">.gitignore</h2>
+<h2 id="stash">Stash</h2>
+<h2 id="discard-hunk">Discard hunk</h2>
+<h2 id="git-diff">Git diff</h2>
+<h3 id="xcode">Xcode</h3>
+<p><img src="xcode_diff.png" alt="Git Diff in Xcode"></p>
+<h3 id="sourcetree">SourceTree</h3>
+<h3 id="macvim">MacVim</h3>
+<h2 id="branches">Branches</h2>
+<h2 id="detached-head">Detached head</h2>
+<h2 id="reflog">reflog</h2>
+<p>Shows commits not on any branch path.</p>
+<h2 id="submodule">Submodule</h2>
+<h2 id="cloning-an-existing-git-repository-from-github">Cloning an existing git repository from github</h2>
+<p>In bash, cd to directory that will contain the new project folder, e.g. cd MyProjects</p>
+<p>git clone git@github.com:beepscore/BeepscoreProject.git</p>
+<h2 id="creating-a-git-repository-in-the-project">Creating a git repository in the project</h2>
+<p>in Finder, create new folder MyProject or in bash</p>
+<pre><code>$ mkdir MyProject</code></pre>
+<p>in bash</p>
+<pre><code>$ cd MyProject</code></pre>
+<p>in Finder, copy file Objective-C.gitignore into directory MyProject</p>
+<p>in bash, rename Objective-C.gitignore to .gitignore (can't do this from Finder)</p>
+<pre><code>$ mv Objective-C.gitignore .gitignore</code></pre>
+<p>list files, including hidden files that start with &quot;.&quot;</p>
+<pre><code>$ ls -a</code></pre>
+<p>create a git repository</p>
+<pre><code>$ git init</code></pre>
+<h3 id="make-local-changes-stage-commit-push">Make local changes, stage, commit, push</h3>
+<pre><code>$ touch README
+$ git add README
+$ git commit -m &#39;first commit&#39;
+$ git push origin master</code></pre>
+<p>alternatively, run SourceTree</p>
+<h3 id="getting-changes-from-others">Getting changes from others</h3>
+<p>Get the latest changes from the remote, doesn't do a local commit.</p>
+<pre><code>$ git fetch origin</code></pre>
+<p>pull is same as fetch followed by commit.</p>
+<pre><code>$ git pull</code></pre>
+<h2 id="undoing-changes">Undoing changes</h2>
+<h3 id="if-modified-but-not-staged">If modified but not staged:</h3>
+<pre><code>$ git checkout (mybranch) (filename)</code></pre>
+<p>Or in Xcode right click on file, &quot;discard changes&quot;. Or in SourceTree, open repository directory, at top right select Discard.</p>
+<h3 id="if-modified-and-staged-but-not-commited">If modified and staged but not commited</h3>
+<pre><code>$ git reset HEAD (filename)</code></pre>
+<h3 id="undoing-committed-changes-git-immersion-lab-16">Undoing committed changes (Git Immersion Lab 16)</h3>
+<p>Create a commit that undoes previous commit.</p>
+<pre><code>$ git revert HEAD</code></pre>
+<p>Create a commit that undoes back to commit (sha).</p>
+<pre><code>$ git revert (sha)</code></pre>
+<h2 id="log-a-files-revision-history-git-immersion-lab-23">Log a file's revision history (Git Immersion Lab 23)</h2>
+<pre><code>$ git log -- myfile
+$ git log -p myfile</code></pre>
+<h2 id="manipulating-branchesgit-immersion-lab-24">Manipulating branches(Git Immersion Lab 24)</h2>
+<p>List all branches</p>
+<pre><code>$ git branch</code></pre>
+<p>Create a new branch named mybranch, referencing the same point in history as the current branch</p>
+<pre><code>$ git branch mybranch
+$ git checkout mybranch</code></pre>
+<p>Merge mybranch into the current branch. Doesn't delete mybranch</p>
+<pre><code>$ git merge mybranch</code></pre>
+<p>Delete the branch mybranch; if the branch you are deleting points to a commit which is not reachable from the current branch, this command will fail with a warning. When run in local repository, deletes branch in local repository only.</p>
+<pre><code>$ git branch -d mybranch</code></pre>
+<p>Remove some-branch from the remote repo (e.g. github)</p>
+<pre><code>$ git push origin :heads/some-branch</code></pre>
+<h1 id="references">References</h1>
+<p>Pro Git Book <a href="http://git-scm.com/book/en/">http://git-scm.com/book/en/</a></p>
+<p>How To Use Git Source Control with Xcode in iOS 6 <a href="http://www.raywenderlich.com/13771/how-to-use-git-source-control-with-xcode-in-ios-6">http://www.raywenderlich.com/13771/how-to-use-git-source-control-with-xcode-in-ios-6</a></p>
+<p>SourceTree GUI <a href="http://www.sourcetreeapp.com/">http://www.sourcetreeapp.com/</a></p>
+<p>Git Immersion <a href="http://gitimmersion.com/">http://gitimmersion.com/</a></p>
+<p>Git User's Manual <a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html">http://www.kernel.org/pub/software/scm/git/docs/user-manual.html</a></p>
+<p>.gitignore files including Objective-C.gitignore <a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a></p>
+</body>
+
+
