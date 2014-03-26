@@ -22,9 +22,11 @@ Potential intermediate topics include reverting commits, working with other deve
 # Topics
 
 ## How git tracks changes
+
 ### SHA
-     Everything in Git is check-summed before it is stored and is then referred to by a SHA-1 hash.
-     This means it’s impossible to change the contents of any file or directory without Git knowing about it.
+Everything in Git is check-summed before it is stored and is then referred to by a SHA-1 hash.
+This means it’s impossible to change the contents of any file or directory without Git knowing about it.
+
 ### directed acyclic graph
 Nodes connected by arrows. No closed loops.
 
@@ -42,7 +44,7 @@ Nodes connected by arrows. No closed loops.
 ## Discard hunk
 ## Git diff
 ### Xcode
- <img src="xcode_diff.png" alt="Git Diff in Xcode">
+ <img src="images/xcode_diff.png" alt="Git Diff in Xcode">
 
 ### SourceTree
 ### MacVim
