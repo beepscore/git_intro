@@ -25,6 +25,15 @@ Potential intermediate topics include reverting commits, working with other deve
 
     $ git init
 
+   <a href="images/star_wars_clone.jpg">What's this?</a>
+
+## Cloning an existing git repository from github
+
+In bash, cd to directory that will contain the new project folder, e.g. 
+  cd MyProjects
+
+  git clone git@github.com:beepscore/BeepscoreProject.git
+
 ## How git tracks changes
 
 ### SHA
@@ -93,6 +102,10 @@ $  BSDissolve git:(ee83b89)
 
  <img src="images/git_detached_head.png" alt="Detached Head in SourceTree" width="100%" height="100%">
 
+
+   <a href="images/clone_detached_head.jpg">What's this?</a>
+
+
    Commit 688fd99
  <img src="images/688fd99.png" alt="commit" width="100%" height="100%">
 
@@ -138,13 +151,6 @@ Xcode Version Editor
 ## Submodule
 
  <img src="images/git_submodule.png" alt="git Submodule" width="100%" height="100%">
-
-## Cloning an existing git repository from github
-
-In bash, cd to directory that will contain the new project folder, e.g. 
-  cd MyProjects
-
-  git clone git@github.com:beepscore/BeepscoreProject.git
 
 ### Make local changes, stage, commit, push
 

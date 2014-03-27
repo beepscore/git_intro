@@ -15,6 +15,10 @@ git version control in and out of Xcode
 <h1 id="topics">Topics</h1>
 <h2 id="creating-a-git-repository">Creating a git repository</h2>
 <pre><code>$ git init</code></pre>
+<p><a href="images/star_wars_clone.jpg">What's this?</a></p>
+<h2 id="cloning-an-existing-git-repository-from-github">Cloning an existing git repository from github</h2>
+<p>In bash, cd to directory that will contain the new project folder, e.g. cd MyProjects</p>
+<p>git clone git@github.com:beepscore/BeepscoreProject.git</p>
 <h2 id="how-git-tracks-changes">How git tracks changes</h2>
 <h3 id="sha">SHA</h3>
 <p>Everything in Git is check-summed before it is stored and is then referred to by a SHA-1 hash. This means it's impossible to change the contents of any file or directory without Git knowing about it.</p>
@@ -60,6 +64,7 @@ do so (now or later) by using -b with the checkout command again. Example:</code
 <p>git checkout -b new_branch_name</p>
 <p>HEAD is now at ee83b89... In iPhone storyboard change segue from push to modal dissolve. $ BSDissolve git:(ee83b89)</p>
 <p><img src="images/git_detached_head.png" alt="Detached Head in SourceTree" width="100%" height="100%"></p>
+<p><a href="images/clone_detached_head.jpg">What's this?</a></p>
 <p>Commit 688fd99 <img src="images/688fd99.png" alt="commit" width="100%" height="100%"></p>
 <h2 id="reflog">reflog</h2>
 <p>Shows commits not on any branch path.</p>
@@ -89,9 +94,6 @@ BSDissolve git:(688fd99) git checkout dev</code></pre>
 <p><img src="images/xcode_version_editor.png" alt="Xcode Version Editor" width="100%" height="100%"></p>
 <h2 id="submodule">Submodule</h2>
 <p><img src="images/git_submodule.png" alt="git Submodule" width="100%" height="100%"></p>
-<h2 id="cloning-an-existing-git-repository-from-github">Cloning an existing git repository from github</h2>
-<p>In bash, cd to directory that will contain the new project folder, e.g. cd MyProjects</p>
-<p>git clone git@github.com:beepscore/BeepscoreProject.git</p>
 <h3 id="make-local-changes-stage-commit-push">Make local changes, stage, commit, push</h3>
 <pre><code>$ touch README
 $ git add README
