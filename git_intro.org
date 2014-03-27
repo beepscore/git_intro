@@ -38,6 +38,7 @@ Nodes connected by arrows. No closed loops.
 
 ** Stage
 ** Commit
+** Selective Commit
 ** SHA
 ** .gitignore
 ** Stash
@@ -121,6 +122,14 @@ Shows commits not on any branch path.
     BSDissolve git:(688fd99) git checkout dev
 
  <img src="images/checkout_dev.png" alt="checkout dev" width="100%" height="100%">
+
+Xcode Source Control History
+
+ <img src="images/xcode_source_control_history.png" alt="Xcode Source Control History" width="100%" height="100%">
+
+Xcode Version Editor
+
+ <img src="images/xcode_version_editor.png" alt="Xcode Version Editor" width="100%" height="100%">
 
 ** Submodule
 
