@@ -54,12 +54,79 @@ Nodes connected by arrows. No closed loops.
 
 ## Branches
 
+List all branches
+
+    $ git branch
+
+Create a new branch named mybranch, referencing the same point in history as the current branch
+
+    $ git branch mybranch
+    $ git checkout mybranch
+
+Remove some-branch from the remote repo (e.g. github)
+
+    $ git push origin :heads/some-branch
+
 ## Detached head
+
+ <img src="images/git_master.png" alt="Master in SourceTree" width="100%" height="100%">
+
+    BSDissolve git:(master) git checkout ee83b8953faf44545b61488d6ab13a6df81fc19a
+    Note: checking out 'ee83b8953faf44545b61488d6ab13a6df81fc19a'.
+
+    You are in 'detached HEAD' state. You can look around, make experimental
+    changes and commit them, and you can discard any commits you make in this
+    state without impacting any branches by performing another checkout.
+
+    If you want to create a new branch to retain commits you create, you may
+    do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at ee83b89... In iPhone storyboard change segue from push to modal dissolve.
+$  BSDissolve git:(ee83b89)
+
+ <img src="images/git_detached_head.png" alt="Detached Head in SourceTree" width="100%" height="100%">
+
+   Commit 688fd99
+ <img src="images/688fd99.png" alt="commit" width="100%" height="100%">
+
+
 ## reflog
 Shows commits not on any branch path.
 
+   $ git checkout master
+
+    53b8464 HEAD@{0}: checkout: moving from 688fd99394d8c0bca8762dda6051e4ad65e0533d to master
+
+    688fd99 HEAD@{1}: commit: In Xcode project navigator move BSAppDelegate.m. next to other files.
+
+    ee83b89 HEAD@{2}: checkout: moving from master to ee83b8953faf44545b61488d6ab13a6df81fc19a
+    53b8464 HEAD@{3}: checkout: moving from ee83b8953faf44545b61488d6ab13a6df81fc19a to master
+    ee83b89 HEAD@{4}: checkout: moving from master to ee83b8953faf44545b61488d6ab13a6df81fc19a
+    53b8464 HEAD@{5}: commit: Add README.md and LICENSE.txt
+    ee83b89 HEAD@{6}: commit: In iPhone storyboard change segue from push to modal dissolve.
+    987ab16 HEAD@{7}: commit: Let Xcode 5.1 update to recommended project settings. Set storyboard to use modal transition and cross-dissolve. Using modal, currently user can't navigate back from detail view.
+    ef0d443 HEAD@{8}: commit: Add .gitignore
+    589d17e HEAD@{9}: commit (initial): Initial Commit
+
+### Don't see 688fd99
+
+ <img src="images/master_dont_see_688fd99.png" alt="dont see 688fd99" width="100%" height="100%">
+
+    BSDissolve git:(master) git checkout 688fd99
+
+### Make dev branch
+    BSDissolve git:(688fd99) git branch dev
+    BSDissolve git:(688fd99) git checkout dev
+
+ <img src="images/checkout_dev.png" alt="checkout dev" width="100%" height="100%">
+
 ## Submodule
 
+## Creating a git repository
+
+    $ git init
 
 ## Cloning an existing git repository from github
 
@@ -67,10 +134,6 @@ In bash, cd to directory that will contain the new project folder, e.g.
   cd MyProjects
 
   git clone git@github.com:beepscore/BeepscoreProject.git
-
-## Creating a git repository in the project
-
-    $ git init
 
 ### Make local changes, stage, commit, push
 
@@ -111,21 +174,6 @@ Create a commit that undoes previous commit.
 Create a commit that undoes back to commit (sha).
 
     $ git revert (sha)
-
-## branches
-
-List all branches
-
-    $ git branch
-
-Create a new branch named mybranch, referencing the same point in history as the current branch
-
-    $ git branch mybranch
-    $ git checkout mybranch
-
-Remove some-branch from the remote repo (e.g. github)
-
-    $ git push origin :heads/some-branch
 
 # References
 Pro Git Book

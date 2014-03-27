@@ -36,15 +36,56 @@ git version control in and out of Xcode
 <h3 id="macvim">MacVim</h3>
 <p><img src="images/macvim_diff.png" alt="Git Diff in MacVim"></p>
 <h2 id="branches">Branches</h2>
+<p>List all branches</p>
+<pre><code>$ git branch</code></pre>
+<p>Create a new branch named mybranch, referencing the same point in history as the current branch</p>
+<pre><code>$ git branch mybranch
+$ git checkout mybranch</code></pre>
+<p>Remove some-branch from the remote repo (e.g. github)</p>
+<pre><code>$ git push origin :heads/some-branch</code></pre>
 <h2 id="detached-head">Detached head</h2>
+<p><img src="images/git_master.png" alt="Master in SourceTree" width="100%" height="100%"></p>
+<pre><code>BSDissolve git:(master) git checkout ee83b8953faf44545b61488d6ab13a6df81fc19a
+Note: checking out &#39;ee83b8953faf44545b61488d6ab13a6df81fc19a&#39;.
+
+You are in &#39;detached HEAD&#39; state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:</code></pre>
+<p>git checkout -b new_branch_name</p>
+<p>HEAD is now at ee83b89... In iPhone storyboard change segue from push to modal dissolve. $ BSDissolve git:(ee83b89)</p>
+<p><img src="images/git_detached_head.png" alt="Detached Head in SourceTree" width="100%" height="100%"></p>
+<p>Commit 688fd99 <img src="images/688fd99.png" alt="commit" width="100%" height="100%"></p>
 <h2 id="reflog">reflog</h2>
 <p>Shows commits not on any branch path.</p>
+<p>$ git checkout master</p>
+<pre><code>53b8464 HEAD@{0}: checkout: moving from 688fd99394d8c0bca8762dda6051e4ad65e0533d to master
+
+688fd99 HEAD@{1}: commit: In Xcode project navigator move BSAppDelegate.m. next to other files.
+
+ee83b89 HEAD@{2}: checkout: moving from master to ee83b8953faf44545b61488d6ab13a6df81fc19a
+53b8464 HEAD@{3}: checkout: moving from ee83b8953faf44545b61488d6ab13a6df81fc19a to master
+ee83b89 HEAD@{4}: checkout: moving from master to ee83b8953faf44545b61488d6ab13a6df81fc19a
+53b8464 HEAD@{5}: commit: Add README.md and LICENSE.txt
+ee83b89 HEAD@{6}: commit: In iPhone storyboard change segue from push to modal dissolve.
+987ab16 HEAD@{7}: commit: Let Xcode 5.1 update to recommended project settings. Set storyboard to use modal transition and cross-dissolve. Using modal, currently user can&#39;t navigate back from detail view.
+ef0d443 HEAD@{8}: commit: Add .gitignore
+589d17e HEAD@{9}: commit (initial): Initial Commit</code></pre>
+<h3 id="dont-see-688fd99">Don't see 688fd99</h3>
+<p><img src="images/master_dont_see_688fd99.png" alt="dont see 688fd99" width="100%" height="100%"></p>
+<pre><code>BSDissolve git:(master) git checkout 688fd99</code></pre>
+<h3 id="make-dev-branch">Make dev branch</h3>
+<pre><code>BSDissolve git:(688fd99) git branch dev
+BSDissolve git:(688fd99) git checkout dev</code></pre>
+<p><img src="images/checkout_dev.png" alt="checkout dev" width="100%" height="100%"></p>
 <h2 id="submodule">Submodule</h2>
+<h2 id="creating-a-git-repository">Creating a git repository</h2>
+<pre><code>$ git init</code></pre>
 <h2 id="cloning-an-existing-git-repository-from-github">Cloning an existing git repository from github</h2>
 <p>In bash, cd to directory that will contain the new project folder, e.g. cd MyProjects</p>
 <p>git clone git@github.com:beepscore/BeepscoreProject.git</p>
-<h2 id="creating-a-git-repository-in-the-project">Creating a git repository in the project</h2>
-<pre><code>$ git init</code></pre>
 <h3 id="make-local-changes-stage-commit-push">Make local changes, stage, commit, push</h3>
 <pre><code>$ touch README
 $ git add README
@@ -67,14 +108,6 @@ $ git push origin master</code></pre>
 <pre><code>$ git revert HEAD</code></pre>
 <p>Create a commit that undoes back to commit (sha).</p>
 <pre><code>$ git revert (sha)</code></pre>
-<h2 id="branches-1">branches</h2>
-<p>List all branches</p>
-<pre><code>$ git branch</code></pre>
-<p>Create a new branch named mybranch, referencing the same point in history as the current branch</p>
-<pre><code>$ git branch mybranch
-$ git checkout mybranch</code></pre>
-<p>Remove some-branch from the remote repo (e.g. github)</p>
-<pre><code>$ git push origin :heads/some-branch</code></pre>
 <h1 id="references">References</h1>
 <p>Pro Git Book <a href="http://git-scm.com/book/en/">http://git-scm.com/book/en/</a></p>
 <p>How To Use Git Source Control with Xcode in iOS 6 <a href="http://www.raywenderlich.com/13771/how-to-use-git-source-control-with-xcode-in-ios-6">http://www.raywenderlich.com/13771/how-to-use-git-source-control-with-xcode-in-ios-6</a></p>
