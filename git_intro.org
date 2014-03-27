@@ -213,4 +213,8 @@ Git User's Manual
 .gitignore files including Objective-C.gitignore
 <https://github.com/github/gitignore>
 
+<http://www.amazon.com/Adult-Deluxe-Clone-Trooper-Costume/dp/B001J4OU8O>
+
+<http://www.go4costumes.com/searchresult.php?kwds=Star%20Wars%20Clone%20Wars%20Clone%20Trooper%20Leader%20Rex%201/2%20Mask&category=All>
+
 </body>
