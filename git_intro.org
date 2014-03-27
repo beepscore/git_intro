@@ -43,6 +43,8 @@ This means it's impossible to change the contents of any file or directory witho
 *** directed acyclic graph
 Nodes connected by arrows. No closed loops.
 
+   <a href="http://en.wikipedia.org/wiki/Directed_acyclic_graph">DAG on Wikipedia</a>
+
 *** Working directory -> Staging area -> Repository
 *** branch is last commit, advances automatically
 *** Unlike SVN, branch doesn't clutter file structure in Finder.
