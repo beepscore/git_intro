@@ -21,6 +21,10 @@ Potential intermediate topics include reverting commits, working with other deve
 
 * Topics
 
+** Creating a git repository
+
+    $ git init
+
 ** How git tracks changes
 
 *** SHA
@@ -133,9 +137,7 @@ Xcode Version Editor
 
 ** Submodule
 
-** Creating a git repository
-
-    $ git init
+ <img src="images/git_submodule.png" alt="git Submodule" width="100%" height="100%">
 
 ** Cloning an existing git repository from github
 
